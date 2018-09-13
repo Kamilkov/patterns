@@ -38,7 +38,7 @@ CLASS zcl_multiton IMPLEMENTATION.
 
   METHOD constructor.
 
-* Check if IV_AUFNR exists in AFKO and raise error if not
+* Check if IV_AUFNR exists in AFKO and raise an error if not
 
     gv_aufnr = iv_aufnr.
 
@@ -50,7 +50,6 @@ CLASS zcl_multiton IMPLEMENTATION.
 
     IF sy-subrc NE 0.
 
-* check if iv_lifnr exists in lfa1 and raise error if not
       DATA(ls_multiton) = VALUE t_multiton( aufnr = iv_aufnr ).
 
       ls_multiton-obj = NEW #( iv_aufnr ).
